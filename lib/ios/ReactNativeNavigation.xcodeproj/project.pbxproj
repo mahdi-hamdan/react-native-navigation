@@ -412,7 +412,8 @@
 		7BEF0D191E437684003E96B0 /* RNNComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEF0D171E437684003E96B0 /* RNNComponentViewController.m */; };
 		7BEF0D1C1E43771B003E96B0 /* RNNLayoutNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BEF0D1A1E43771B003E96B0 /* RNNLayoutNode.h */; };
 		7BEF0D1D1E43771B003E96B0 /* RNNLayoutNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEF0D1B1E43771B003E96B0 /* RNNLayoutNode.m */; };
-		849AD40D28983B7A00AADBAD /* ProgrammaticAccessLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849AD40C28983B7A00AADBAD /* ProgrammaticAccessLibrary.framework */; };
+		849AD415289842EB00AADBAD /* ProgrammaticAccessLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849AD414289842EB00AADBAD /* ProgrammaticAccessLibrary.framework */; };
+		849AD4172898437D00AADBAD /* ProgrammaticAccessLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849AD414289842EB00AADBAD /* ProgrammaticAccessLibrary.framework */; };
 		A7626BFD1FC2FB2C00492FB8 /* RNNTopBarOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = A7626BFC1FC2FB2C00492FB8 /* RNNTopBarOptions.m */; };
 		A7626C011FC5796200492FB8 /* RNNBottomTabsOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = A7626C001FC5796200492FB8 /* RNNBottomTabsOptions.m */; };
 		C2A57A1C21E815F80066711C /* InteractivePopGestureDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = C2A57A1A21E815F80066711C /* InteractivePopGestureDelegate.h */; };
@@ -909,7 +910,7 @@
 		7BEF0D171E437684003E96B0 /* RNNComponentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNNComponentViewController.m; sourceTree = "<group>"; };
 		7BEF0D1A1E43771B003E96B0 /* RNNLayoutNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNNLayoutNode.h; sourceTree = "<group>"; };
 		7BEF0D1B1E43771B003E96B0 /* RNNLayoutNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNNLayoutNode.m; sourceTree = "<group>"; };
-		849AD40C28983B7A00AADBAD /* ProgrammaticAccessLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ProgrammaticAccessLibrary.framework; sourceTree = "<group>"; };
+		849AD414289842EB00AADBAD /* ProgrammaticAccessLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ProgrammaticAccessLibrary.framework; sourceTree = "<group>"; };
 		A7626BFC1FC2FB2C00492FB8 /* RNNTopBarOptions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNNTopBarOptions.m; sourceTree = "<group>"; };
 		A7626BFE1FC2FB6700492FB8 /* RNNTopBarOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNNTopBarOptions.h; sourceTree = "<group>"; };
 		A7626BFF1FC578AB00492FB8 /* RNNBottomTabsOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNNBottomTabsOptions.h; sourceTree = "<group>"; };
@@ -980,7 +981,7 @@
 				7B49FEE91E950A7A00DEB3EA /* libRCTVibration.a in Frameworks */,
 				7B49FEEA1E950A7A00DEB3EA /* libRCTWebSocket.a in Frameworks */,
 				7B49FEEB1E950A7A00DEB3EA /* libReact.a in Frameworks */,
-				849AD40D28983B7A00AADBAD /* ProgrammaticAccessLibrary.framework in Frameworks */,
+				849AD415289842EB00AADBAD /* ProgrammaticAccessLibrary.framework in Frameworks */,
 				501214C9217741A000435148 /* libOCMock.a in Frameworks */,
 				7B49FEEC1E950A7A00DEB3EA /* libyoga.a in Frameworks */,
 				7B49FEC01E95090800DEB3EA /* libReactNativeNavigation.a in Frameworks */,
@@ -991,6 +992,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849AD4172898437D00AADBAD /* ProgrammaticAccessLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1538,7 +1540,7 @@
 		7B49FED01E950A7A00DEB3EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				849AD40C28983B7A00AADBAD /* ProgrammaticAccessLibrary.framework */,
+				849AD414289842EB00AADBAD /* ProgrammaticAccessLibrary.framework */,
 				508EBDBA2278742700BEC144 /* JavaScriptCore.framework */,
 				501214C8217741A000435148 /* libOCMock.a */,
 				7B49FED11E950A7A00DEB3EA /* libcxxreact.a */,
@@ -2397,6 +2399,10 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
@@ -2414,6 +2420,10 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
