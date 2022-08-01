@@ -11,11 +11,10 @@ Pod::Spec.new do |s|
   s.homepage     = package['homepage']
   s.license      = package['license']
   s.platforms     = { :ios => "9.0", :tvos => "13.0" }
-  s.vendored_frameworks = "ios/ProgrammaticAccessLibrary.framework"
 
   s.module_name  = 'ReactNativeNavigation'
 
-  s.source       = { :git => "https://github.com/mahdi-hamdan/react-native-navigation.git", :tag => "6.5.5-sh7" }
+  s.source       = { :git => "git://github.com/mahdi-hamdan/react-native-navigation.git", :tag => "6.5.5-sh8" }
   s.source_files  = "lib/ios/**/*.{h,m}"
   s.exclude_files  = "lib/ios/ReactNativeNavigationTests/**/*.*", "lib/ios/OCMock/**/*.*"
 
