@@ -10,22 +10,16 @@ Pod::Spec.new do |s|
   s.authors      = "Wix.com"
   s.homepage     = package['homepage']
   s.license      = package['license']
+  s.platforms     = { :ios => "9.0", :tvos => "13.0" }
 
   s.module_name  = 'ReactNativeNavigation'
 
-  s.source       = { :git => "git://github.com/mahdi-hamdan/react-native-navigation.git", :tag => "6.5.5-sh9" }
+  s.source       = { :git => "git://github.com/mahdi-hamdan/react-native-navigation.git", :tag => "6.5.5-sh10" }
   s.source_files  = "lib/ios/**/*.{h,m}"
   s.exclude_files  = "lib/ios/ReactNativeNavigationTests/**/*.*", "lib/ios/OCMock/**/*.*"
-
-  s.ios.deployment_target = "8.0"
-  s.tvos.deployment_target = "13.0"
-  s.vendored_frameworks = "ios/ProgrammaticAccessLibrary.framework"
 
   s.dependency 'React'
   s.dependency 'React-RCTImage'
   s.dependency 'React-RCTText'
-  # s.frameworks = 'UIKit'
-  s.xcconfig = {
-    'OTHER_LDFLAGS': '-ObjC',
-  }
+  s.frameworks = 'UIKit'
 end
