@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
   s.module_name  = 'ReactNativeNavigation'
 
-  s.source       = { :git => "git://github.com/mahdi-hamdan/react-native-navigation.git", :tag => "6.5.5-sh8" }
+  s.source       = { :git => "git://github.com/mahdi-hamdan/react-native-navigation.git", :tag => "6.5.5-sh9" }
   s.source_files  = "lib/ios/**/*.{h,m}"
   s.exclude_files  = "lib/ios/ReactNativeNavigationTests/**/*.*", "lib/ios/OCMock/**/*.*"
 
