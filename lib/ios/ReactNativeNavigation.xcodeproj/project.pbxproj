@@ -46,6 +46,8 @@
 		30987D71FB4FEEAC8D8978E8 /* DotIndicatorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 309874E37C7E9764C7B694E5 /* DotIndicatorParser.m */; };
 		390AD477200F499D00A8250D /* RNNSwizzles.h in Headers */ = {isa = PBXBuildFile; fileRef = 390AD475200F499D00A8250D /* RNNSwizzles.h */; };
 		390AD478200F499D00A8250D /* RNNSwizzles.m in Sources */ = {isa = PBXBuildFile; fileRef = 390AD476200F499D00A8250D /* RNNSwizzles.m */; };
+		4112625128A433E90070A74F /* ProgrammaticAccessLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4112625028A433E90070A74F /* ProgrammaticAccessLibrary.framework */; };
+		4112625228A433E90070A74F /* ProgrammaticAccessLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4112625028A433E90070A74F /* ProgrammaticAccessLibrary.framework */; };
 		4534E72520CB6724009F8185 /* RNNLargeTitleOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4534E72320CB6724009F8185 /* RNNLargeTitleOptions.h */; };
 		4534E72620CB6724009F8185 /* RNNLargeTitleOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4534E72420CB6724009F8185 /* RNNLargeTitleOptions.m */; };
 		5008641223856A2D00A55BE9 /* UITabBar+utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5008641023856A2C00A55BE9 /* UITabBar+utils.m */; };
@@ -532,6 +534,7 @@
 		30987FED6F982D322416CAF2 /* UITabBarController+RNNUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+RNNUtils.h"; sourceTree = "<group>"; };
 		390AD475200F499D00A8250D /* RNNSwizzles.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNNSwizzles.h; sourceTree = "<group>"; };
 		390AD476200F499D00A8250D /* RNNSwizzles.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNNSwizzles.m; sourceTree = "<group>"; };
+		4112625028A433E90070A74F /* ProgrammaticAccessLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ProgrammaticAccessLibrary.framework; sourceTree = "<group>"; };
 		4534E72320CB6724009F8185 /* RNNLargeTitleOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNNLargeTitleOptions.h; sourceTree = "<group>"; };
 		4534E72420CB6724009F8185 /* RNNLargeTitleOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNNLargeTitleOptions.m; sourceTree = "<group>"; };
 		5008641023856A2C00A55BE9 /* UITabBar+utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+utils.m"; sourceTree = "<group>"; };
@@ -978,6 +981,7 @@
 				7B49FEE91E950A7A00DEB3EA /* libRCTVibration.a in Frameworks */,
 				7B49FEEA1E950A7A00DEB3EA /* libRCTWebSocket.a in Frameworks */,
 				7B49FEEB1E950A7A00DEB3EA /* libReact.a in Frameworks */,
+				4112625228A433E90070A74F /* ProgrammaticAccessLibrary.framework in Frameworks */,
 				501214C9217741A000435148 /* libOCMock.a in Frameworks */,
 				7B49FEEC1E950A7A00DEB3EA /* libyoga.a in Frameworks */,
 				7B49FEC01E95090800DEB3EA /* libReactNativeNavigation.a in Frameworks */,
@@ -988,6 +992,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4112625128A433E90070A74F /* ProgrammaticAccessLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1535,6 +1540,7 @@
 		7B49FED01E950A7A00DEB3EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4112625028A433E90070A74F /* ProgrammaticAccessLibrary.framework */,
 				508EBDBA2278742700BEC144 /* JavaScriptCore.framework */,
 				501214C8217741A000435148 /* libOCMock.a */,
 				7B49FED11E950A7A00DEB3EA /* libcxxreact.a */,
@@ -2393,6 +2399,10 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
@@ -2410,6 +2420,10 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
