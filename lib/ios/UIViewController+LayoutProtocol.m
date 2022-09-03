@@ -41,8 +41,7 @@ NSString * _nonceString ;
 
 }
 -(NSString*) getNonce{
-    return  _nonceString;
-
+    return  _nonceString ? _nonceString : @"" ;
 }
 - (void)mergeOptions:(RNNNavigationOptions *)options {
     [self.options overrideOptions:options];
