@@ -9,7 +9,7 @@
 	if (json[key]) {
 		return [json[key] isKindOfClass:[NSNumber class]] ? [[Color alloc] initWithValue:[RCTConvert UIColor:json[key]]] : [NoColor new];
 	}
-	return [NullColor new];
+	return [NullColor shared];
 }
 
 @end

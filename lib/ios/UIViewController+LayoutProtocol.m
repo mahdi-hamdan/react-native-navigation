@@ -43,6 +43,33 @@ NSString * _nonceString ;
 -(NSString*) getNonce{
     return  _nonceString ? _nonceString : @"" ;
 }
+
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        Class class = [self class];
+        
+        SEL deallocSelector = NSSelectorFromString(@"dealloc");
+        SEL swizzledDeallocSelector = @selector(rnn_dealloc);
+        
+        Method originalMethod = class_getInstanceMethod(class, deallocSelector);
+        Method swizzledMethod = class_getInstanceMethod(class, swizzledDeallocSelector);
+        
+        BOOL didAddMethod = class_addMethod(class, deallocSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod));
+        
+        if (didAddMethod) {
+            class_replaceMethod(class, swizzledDeallocSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
+        } else {
+            method_exchangeImplementations(originalMethod, swizzledMethod);
+        }
+    });
+}
+
+- (void)rnn_dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:RCTSetNonceValueNotification object:nil];
+    [self rnn_dealloc]; // This calls the original dealloc due to swizzling
+}
+
 - (void)mergeOptions:(RNNNavigationOptions *)options {
     [self.options overrideOptions:options];
     [self.presenter mergeOptions:options resolvedOptions:self.resolveOptions];

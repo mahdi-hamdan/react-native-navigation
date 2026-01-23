@@ -5,7 +5,7 @@
 @implementation ImageParser
 
 + (Image *)parse:(NSDictionary *)json key:(NSString *)key {
-	return json[key] ? [[Image alloc] initWithValue:[RCTConvert UIImage:json[key]]] : [NullImage new];
+	return json[key] ? [[Image alloc] initWithValue:[RCTConvert UIImage:json[key]]] : [NullImage shared];
 }
 
 @end

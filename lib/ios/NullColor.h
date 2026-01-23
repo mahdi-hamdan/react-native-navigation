@@ -2,4 +2,6 @@
 
 @interface NullColor : Color
 
++ (instancetype)shared;
+
 @end

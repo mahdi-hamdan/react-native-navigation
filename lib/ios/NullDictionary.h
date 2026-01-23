@@ -2,4 +2,6 @@
 
 @interface NullDictionary : Dictionary
 
++ (instancetype)shared;
+
 @end

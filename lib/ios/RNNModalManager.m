@@ -119,17 +119,28 @@
 }
 
 - (void)dismissedModal:(UIViewController *)viewController {
-	[_presentedModals removeObject:[viewController topMostViewController]];
-	[_delegate dismissedModal:viewController.presentedComponentViewController];
+	UIViewController *topMost = [viewController topMostViewController];
+	if (topMost) {
+		[_presentedModals removeObject:topMost];
+	}
+	if (_delegate && [_delegate respondsToSelector:@selector(dismissedModal:)]) {
+		[_delegate dismissedModal:viewController.presentedComponentViewController];
+	}
 }
 
 - (void)presentationControllerDidDismiss:(UIPresentationController *)presentationController {
-	[_presentedModals removeObject:presentationController.presentedViewController];
-    [_delegate dismissedModal:presentationController.presentedViewController.presentedComponentViewController];
+	if (presentationController.presentedViewController) {
+		[_presentedModals removeObject:presentationController.presentedViewController];
+		if (_delegate && [_delegate respondsToSelector:@selector(dismissedModal:)]) {
+			[_delegate dismissedModal:presentationController.presentedViewController.presentedComponentViewController];
+		}
+	}
 }
 
 - (void)presentationControllerDidAttemptToDismiss:(UIPresentationController *)presentationController {
-    [_delegate attemptedToDismissModal:presentationController.presentedViewController.presentedComponentViewController];
+	if (_delegate && [_delegate respondsToSelector:@selector(attemptedToDismissModal:)]) {
+		[_delegate attemptedToDismissModal:presentationController.presentedViewController.presentedComponentViewController];
+	}
 }
 
 -(UIViewController*)topPresentedVC {
@@ -154,5 +165,10 @@
 	return topParent;
 }
 
+- (void)dealloc {
+	[_pendingModalIdsToDismiss removeAllObjects];
+	[_presentedModals removeAllObjects];
+	_delegate = nil;
+}
 
 @end

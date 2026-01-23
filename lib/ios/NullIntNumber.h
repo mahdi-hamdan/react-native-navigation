@@ -2,4 +2,6 @@
 
 @interface NullIntNumber : IntNumber
 
++ (instancetype)shared;
+
 @end

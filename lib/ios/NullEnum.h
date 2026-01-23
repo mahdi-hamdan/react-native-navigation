@@ -2,4 +2,6 @@
 
 @interface NullEnum : Enum
 
++ (instancetype)shared;
+
 @end
