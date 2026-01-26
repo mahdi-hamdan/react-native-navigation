@@ -55,9 +55,21 @@
     [self.presenter viewDidLayoutSubviews];
     
     for (UIView *view in [[self tabBar] subviews]) {
-         UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget: self action: @selector(handleLongPress:)];
           if ([NSStringFromClass([view class]) isEqualToString:@"UITabBarButton"]) {
-              [view addGestureRecognizer: longPressGesture];
+              // Check if long press gesture already exists to prevent accumulation
+              BOOL hasLongPressGesture = NO;
+              for (UIGestureRecognizer *recognizer in view.gestureRecognizers) {
+                  if ([recognizer isKindOfClass:[UILongPressGestureRecognizer class]] && 
+                      [recognizer.view isEqual:view]) {
+                      hasLongPressGesture = YES;
+                      break;
+                  }
+              }
+              
+              if (!hasLongPressGesture) {
+                  UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget: self action: @selector(handleLongPress:)];
+                  [view addGestureRecognizer: longPressGesture];
+              }
           }
     }
     

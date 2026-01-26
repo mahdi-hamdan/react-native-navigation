@@ -40,7 +40,9 @@
 
 - (NSMapTable *)componentsForParentId:(NSString *)parentComponentId {
 	if (![_componentStore objectForKey:parentComponentId]) {
-		[_componentStore setObject:[NSMapTable weakToStrongObjectsMapTable] forKey:parentComponentId];;
+		// Use strongToWeakObjectsMapTable to allow components to be deallocated when no longer needed
+		// This prevents memory accumulation while maintaining component reuse when they're still alive
+		[_componentStore setObject:[NSMapTable strongToWeakObjectsMapTable] forKey:parentComponentId];;
 	}
 	
 	return [_componentStore objectForKey:parentComponentId];;

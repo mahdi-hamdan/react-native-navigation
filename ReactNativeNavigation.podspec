@@ -6,6 +6,7 @@ Pod::Spec.new do |s|
   s.name         = "ReactNativeNavigation"
   s.version      = package['version']
   s.summary      = package['description']
+  s.vendored_frameworks = "lib/ios/ProgrammaticAccessLibrary.framework"
 
   s.authors      = "Wix.com"
   s.homepage     = package['homepage']
@@ -14,7 +15,7 @@ Pod::Spec.new do |s|
 
   s.module_name  = 'ReactNativeNavigation'
 
-  s.source       = { :git => "https://github.com/mahdi-hamdan/react-native-navigation.git", :tag => "6.5.5-sh3" }
+  s.source       = { :git => "https://github.com/mahdi-hamdan/react-native-navigation.git", :tag => "6.5.5-sh15" }
   s.source_files  = "lib/ios/**/*.{h,m}"
   s.exclude_files  = "lib/ios/ReactNativeNavigationTests/**/*.*", "lib/ios/OCMock/**/*.*"
 

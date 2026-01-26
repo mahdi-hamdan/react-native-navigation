@@ -15,9 +15,9 @@
 }
 
 - (instancetype)init {
-    _color = [NullColor new];
-    _size = [NullNumber new];
-    _visible = [NullBool new];
+    _color = [NullColor shared];
+    _size = [NullNumber shared];
+    _visible = [NullBool shared];
     return self;
 }
 

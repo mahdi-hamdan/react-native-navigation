@@ -2,4 +2,6 @@
 
 @interface NullBool : Bool
 
++ (instancetype)shared;
+
 @end

@@ -53,4 +53,9 @@
     @throw [NSException exceptionWithName:@"componentType not implemented" reason:@"Should always subclass RNNReactView" userInfo:nil];
 }
 
+- (void)dealloc {
+    // Remove observer in case reactViewReady was never called
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:RCTContentDidAppearNotification object:nil];
+}
+
 @end

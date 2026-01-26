@@ -2,4 +2,6 @@
 
 @interface NullImage : Image
 
++ (instancetype)shared;
+
 @end

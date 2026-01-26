@@ -47,9 +47,15 @@
 - (void)animateTransitions:(NSArray<id<DisplayLinkAnimatorDelegate>>*)animators andTransitioningContext:(id<UIViewControllerContextTransitioning>)transitionContext {
     DisplayLinkAnimator* displayLinkAnimator = [[DisplayLinkAnimator alloc] initWithDisplayLinkAnimators:animators duration:[self transitionDuration:transitionContext]];
     
+    __weak typeof(self) weakSelf = self;
     [displayLinkAnimator setCompletion:^{
         if (![transitionContext transitionWasCancelled]) {
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+        }
+        // Remove observer after transition completes
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        if (strongSelf && strongSelf->_bridge) {
+            [strongSelf->_bridge.uiManager.observerCoordinator removeObserver:strongSelf];
         }
     }];
     
